@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DummyController;
 use App\Http\Controllers\FeedbackController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration completed on Railway DB!';
+});
 
 Route::post('/signup', [AuthController::class, 'signup']);
 
