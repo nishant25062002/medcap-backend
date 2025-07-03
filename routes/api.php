@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DummyController;
 use App\Http\Controllers\FeedbackController;
 
+Route::get('/ping', fn() => response()->json(['status' => 'OK']));
 
 Route::post('/signup', [AuthController::class, 'signup']);
 
